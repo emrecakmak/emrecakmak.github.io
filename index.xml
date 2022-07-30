@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>~/cakmak</title>
+    <link>https://emrecakmak.github.io/</link>
+    <description>Recent content on ~/cakmak</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jul 2022 23:21:12 +0300</lastBuildDate><atom:link href="https://emrecakmak.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to my blog!</title>
+      <link>https://emrecakmak.github.io/posts/mypost/</link>
+      <pubDate>Sat, 30 Jul 2022 23:21:12 +0300</pubDate>
+      
+      <guid>https://emrecakmak.github.io/posts/mypost/</guid>
+      <description>EC2-Manager Flask ve BOTO3 kütüphanelerini kullanarak AWS içerisinde:
+EC2 ID listeleme EC2 Instance çalıştırma EC2 Instance Durdurma işlevlerini yapan API.
+Kurulum yapmadan istek atmak için: http://ec2-35-157-122-137.eu-central-1.compute.amazonaws.com:3000/
+Bilgisayarınızda Çalıştırın Projeyi klonlayın
+git clone https://github.com/emrecakmak/flask-case Proje dizinine gidin
+class FactorialExample { static int factorial(int n){ if (n == 0) return 1; else return(n * factorial(n-1)); } public static void main(String args[]){ int i,fact=1; int number=4;//It is the number to calculate factorial fact = factorial(number); System.</description>
+    </item>
+    
+  </channel>
+</rss>
