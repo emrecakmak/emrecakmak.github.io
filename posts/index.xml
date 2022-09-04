@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on ~/cakmak</title>
+    <title>Posts on /cakmak</title>
     <link>https://emrecakmak.github.io/posts/</link>
-    <description>Recent content in Posts on ~/cakmak</description>
+    <description>Recent content in Posts on /cakmak</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jul 2022 23:21:12 +0300</lastBuildDate><atom:link href="https://emrecakmak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Aug 2022 14:15:59 -0600</lastBuildDate><atom:link href="https://emrecakmak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to my blog!</title>
       <link>https://emrecakmak.github.io/posts/mypost/</link>
-      <pubDate>Sat, 30 Jul 2022 23:21:12 +0300</pubDate>
+      <pubDate>Tue, 09 Aug 2022 14:15:59 -0600</pubDate>
       
       <guid>https://emrecakmak.github.io/posts/mypost/</guid>
-      <description>EC2-Manager Flask ve BOTO3 kütüphanelerini kullanarak AWS içerisinde:
-EC2 ID listeleme EC2 Instance çalıştırma EC2 Instance Durdurma işlevlerini yapan API.
-Kurulum yapmadan istek atmak için: http://ec2-35-157-122-137.eu-central-1.compute.amazonaws.com:3000/
-Bilgisayarınızda Çalıştırın Projeyi klonlayın
-git clone https://github.com/emrecakmak/flask-case Proje dizinine gidin
-class FactorialExample { static int factorial(int n){ if (n == 0) return 1; else return(n * factorial(n-1)); } public static void main(String args[]){ int i,fact=1; int number=4;//It is the number to calculate factorial fact = factorial(number); System.</description>
+      <description>Hi guys! Welcome to my first blog post.
+In this blog, I will be writing about the challenges I face on a daily basis and how I overcame them. In addition, I will be writing articles to inform people about Cloud environments (mostly AWS).</description>
     </item>
     
   </channel>
