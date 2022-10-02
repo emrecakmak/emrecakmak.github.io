@@ -5,25 +5,14 @@
     <link>https://emrecakmak.github.io/</link>
     <description>Recent content on /cakmak</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 05 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://emrecakmak.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Welcome to my blog!</title>
-      <link>https://emrecakmak.github.io/posts/mypost/</link>
-      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://emrecakmak.github.io/posts/mypost/</guid>
-      <description>package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello world!&amp;#34;) } Hi guys! Welcome to my first blog post.
-In this blog, I will be writing about the challenges I face on a daily basis and how I overcame them. In addition, I will be writing articles to inform people about Cloud environments (mostly AWS).</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://emrecakmak.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://emrecakmak.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://emrecakmak.github.io/about/</guid>
-      <description>Hi, I&amp;rsquo;m Emre! 👋 I&amp;rsquo;m currenty working as a Cloud Native Engineer working mostly with AWS Kubernetes and Linux technologies.
+      <description>Hi, I&amp;rsquo;m Emre! 👋 I&amp;rsquo;m currenty working as a Cloud Native Engineer working mostly with AWS,Kubernetes and Linux technologies.
 As a teenager, I was the kid people approached about their technical issues. I formatted many computers, changed many ringtones, and repaired many satellite receivers. I was the go-to guy for resolving any technical problems.
 Today not much has changed. I still help people by resolving their problems but in a professional way.</description>
     </item>
