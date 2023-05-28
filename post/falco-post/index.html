@@ -104,7 +104,7 @@ In this article, I would like to talk to you about Falco, an effective tool for 
   
   
   
-  <link rel="preload" as="image" href="https://pbs.twimg.com/profile_images/1653040227483541504/Kqn2ip0Q_400x400.jpg" />
+  <link rel="preload" as="image" href="https://gcdnb.pbrd.co/images/WdCu3WqPKFam.webp?o=1" />
   
   
 
@@ -122,7 +122,7 @@ In this article, I would like to talk to you about Falco, an effective tool for 
 
   
   <link rel="icon" href="https://raw.githubusercontent.com/emrecakmak/emrecakmak.github.io/main/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/emrecakmak/emrecakmak.github.io/main/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.112.3">
@@ -170,7 +170,7 @@ if (!doNotTrack) {
   <meta itemprop="name" content="Container Security: Exploring Falco’s Features and Threat Detection Capabilities">
 <meta itemprop="description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."><meta itemprop="datePublished" content="2023-05-20T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-05-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="80">
+<meta itemprop="wordCount" content="808">
 <meta itemprop="keywords" content="Container,Security,Falco,Shell," />
   
   <meta name="twitter:card" content="summary"/>
@@ -338,6 +338,61 @@ if (!doNotTrack) {
 <p>Hello, I’m Emre. I work as a Cloud Native Engineer at Bestcloudfor.me and I’m part of a team that provides consulting services primarily in the AWS cloud domain to our clients.</p>
 <p>In this article, I would like to talk to you about Falco, an effective tool for container security. With the rapid proliferation of containerized applications, security concerns have also been on the rise. This is where the importance of a runtime security tool like Falco comes into play.</p>
 <hr>
+<p>Kubernetes security is a challenging topic due to the dynamic relationships between different application layers and components. To overcome this difficulty, a runtime security tool called Falco has been developed by Sysdig.</p>
+<p>Falco is an open-source tool designed to provide security for applications running in your Kubernetes cluster. It uses a set of rules to monitor activities and behaviors to detect potential security breaches.</p>
+<p>The key features of Falco include working as a runtime security tool that monitors activities of applications running in your Kubernetes cluster. It comes with customizable rules in YAML format. When any attack or misconfigured application is detected, it records events and sends notifications.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*49ocZxCbZQJ-kYKBhsnqYA.png" alt=""></p>
+<h2 id="alert-mechanism-of-falco">Alert mechanism of Falco</h2>
+<p>Falco comes with a set of predefined alarm rules that monitor the activities of applications running in your Kubernetes cluster and send alerts in case of abnormal behavior. Some examples of these alarm rules are:</p>
+<p>Sensitive file access: Sends an alert when access to sensitive files is detected.
+Shell in Kubernetes Pod: Sends an alert when a shell is detected running within Kubernetes pods.
+These alarm rules can be easily customized or expanded by editing Falco’s YAML-based rules. When Falco detects unusual activities, it logs these activities and sends notifications to users. Notifications can be sent to Slack, email, Syslog, or any other specified destination. Check <a href="https://falco.org/blog/extend-falco-outputs-with-falcosidekick/">https://falco.org/blog/extend-falco-outputs-with-falcosidekick/</a> website to explore more supported destinations.</p>
+<p>Please note that Falco provides the flexibility to tailor the rules according to specific security requirements, allowing you to adapt the monitoring system to your needs and enhance your overall security posture.</p>
+<p>You can learn more by visiting Falco’s docs.</p>
+<h2 id="installing-and-receiving-alarms-with-falco">Installing and Receiving Alarms with Falco</h2>
+<p>Falco provides different installation methods and if you refer to the installation documentation, you can find detailed information about each option. Falco does recommend the direct installation on the host system as the preferred method.</p>
+<p>The most secure way to run Falco is to install Falco directly on the host system so that Falco is isolated from Kubernetes in the case of compromise. Then the Falco alerts can be consumed through read-only agents running in Kubernetes.</p>
+<p>We will proceed with the installation of Falco as a DaemonSet on a Kubernetes cluster using a third Party method.</p>
+<p>To install Falco, you need a running Kubernetes cluster. Additionally, this document utilizes the Helm package manager for the installation steps. If you wish to receive notifications through Falco, there are various methods available. However, in this document we will use Slack for demonstration purposes.</p>
+<p>After setting up the environment and installing the necessary tools, here are the steps you need to take:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create ns falco
+</span></span><span style="display:flex;"><span> </span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm repo add falcosecurity https://falcosecurity.github.io/charts
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>helm repo update
+</span></span><span style="display:flex;"><span> </span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm install falco -n falco falcosecurity/falco <span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span> --set auditLog.enabled<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span> --set falco.jsonOutput<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span> --set falco.fileOutput.enabled<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span> --set falcosidekick.enabled<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> --set falcosidekick.config.slack.webhookurl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;YOUR-SLACK-WEBHOOK-ENDPOINT&gt;&#34;</span>
+</span></span><span style="display:flex;"><span> </span></span></code></pre></div>
+<p>To verify the installation of Falco, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pods -n falco</span></span></code></pre></div>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*II8YDYwULfFnowS-rOwQiA.png" alt=""></p>
+<p>If you see this output, the installation is complete. After that we can do some risky operations and complete the tests.</p>
+<p>Example of creating files in /etc directory
+<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*tpApylKHgNTPNWX-cJcyUA.png" alt=""></p>
+<p>Example of open shell in running pod
+<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*8W7Fbu4AgMaSJjtyV3Ic0Q.png" alt=""></p>
+<h2 id="alternatives">Alternatives</h2>
+<p>There are some alternatives to Falco for monitoring runtime malicious activities for Container Security:</p>
+<ul>
+<li>Sysdig Secure: Sysdig Secure provides a range of tools for monitoring security in container environments and detecting threats. Sysdig has a runtime security engine similar to Falco, providing the ability to detect anomalies and threats in the system.</li>
+<li>Twistlock (Palo Alto Networks — Prisma Cloud): Twistlock is a popular tool that provides a comprehensive platform for container security. It offers runtime detection of malicious activities, identification of weak configurations, and prevention of breaches.
+These tools are some commonly used alternatives for monitoring and detecting malicious activities in container environments. To determine which tool is best suited for your needs, it’s important to consider your requirements, budget, and priorities.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>To sum up, Falco is an essential tool for securing Kubernetes clusters. It provides us with confidence in the security of our applications within the cluster and alerts us to any abnormal activities.</p>
+<p>Falco acts as a detection tool and sends alerts regarding the detected events, but it does not actively prevent or block activities. Therefore Falco can be used in conjunction with other tools to take action in response to the identified security issues.</p>
+<p>Preventing such malicious activities will be the subject of another article :)</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://falco.org/docs/">https://falco.org/docs/</a></li>
+<li><a href="https://falco.org/blog/extend-falco-outputs-with-falcosidekick/">https://falco.org/blog/extend-falco-outputs-with-falcosidekick/</a></li>
+<li><a href="https://sysdig.com/opensource/falco/">https://sysdig.com/opensource/falco/</a></li>
+</ul>
 </section>
 
   

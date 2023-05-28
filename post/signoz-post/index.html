@@ -84,7 +84,7 @@ if (!doNotTrack) {
   
   <meta name="description" content="Introduction Hello, I’m Emre. I work as a Cloud Native Engineer at Bestcloudfor.me and I’m part of a team that provides consulting services primarily in the AWS cloud domain to our clients.
 In this blog post, we’ll explore SigNoz, a powerful open-source tool for Application Performance Monitoring (APM). With the increasing complexity of modern applications, monitoring performance is crucial. SigNoz provides real-time metrics, distributed tracing, and root cause analysis to help developers and operations teams identify bottlenecks, troubleshoot issues, and optimize application performance." />
-  <meta name="author" content="Emre" />
+  <meta name="author" content="Emre Çakmak" />
   
 
   
@@ -104,7 +104,7 @@ In this blog post, we’ll explore SigNoz, a powerful open-source tool for Appli
   
   
   
-  <link rel="preload" as="image" href="https://pbs.twimg.com/profile_images/1653040227483541504/Kqn2ip0Q_400x400.jpg" />
+  <link rel="preload" as="image" href="https://gcdnb.pbrd.co/images/WdCu3WqPKFam.webp?o=1" />
   
   
 
@@ -122,7 +122,7 @@ In this blog post, we’ll explore SigNoz, a powerful open-source tool for Appli
 
   
   <link rel="icon" href="https://raw.githubusercontent.com/emrecakmak/emrecakmak.github.io/main/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/emrecakmak/emrecakmak.github.io/main/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.112.3">
@@ -170,7 +170,7 @@ if (!doNotTrack) {
   <meta itemprop="name" content="Unlocking Application Performance with SigNoz: Empower Your Monitoring Game!">
 <meta itemprop="description" content="Blog about an APM tool SigNoz"><meta itemprop="datePublished" content="2023-05-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-05-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="83">
+<meta itemprop="wordCount" content="1096">
 <meta itemprop="keywords" content="Signoz,APM,Monitoring,New Relic,Datadog," />
   
   <meta name="twitter:card" content="summary"/>
@@ -326,18 +326,108 @@ if (!doNotTrack) {
       
       
       
-      <span class="mx-1">&middot;</span>
-      <span>Emre</span>
-      
     </div>
     
   </header>
 
-  <section><p><a href=""><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*z_ANVuSPMhpWtH14.png" alt=""></a></p>
+  <section><p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*z_ANVuSPMhpWtH14.png" alt=""></p>
 <h2 id="introduction">Introduction</h2>
 <p>Hello, I’m Emre. I work as a Cloud Native Engineer at Bestcloudfor.me and I’m part of a team that provides consulting services primarily in the AWS cloud domain to our clients.</p>
 <p>In this blog post, we’ll explore SigNoz, a powerful open-source tool for Application Performance Monitoring (APM). With the increasing complexity of modern applications, monitoring performance is crucial. SigNoz provides real-time metrics, distributed tracing, and root cause analysis to help developers and operations teams identify bottlenecks, troubleshoot issues, and optimize application performance.</p>
 <hr>
+<p>SigNoz is an open-source Application Performance Monitoring (APM) tool that provides end-to-end observability for modern applications. Designed with a microservices architecture in mind, SigNoz can monitor the performance of your entire stack, from frontend to backend, and all the way down to the database.</p>
+<p>SigNoz provides a range of features that make it an ideal choice for teams that want visibility into their applications’ performance. It has a user-friendly interface that allows you to easily visualize metrics and diagnose issues. The platform is built to scale, so it can handle large volumes of data and support multiple users.</p>
+<p>SigNoz supports a wide range of technologies, including Java, Python, Node.js, and Go. It is compatible with popular frameworks such as Spring Boot, Flask, and Express. The platform integrates with other popular tools such as Grafana, Prometheus, making it easier to get started with observability.</p>
+<hr>
+<p>SigNoz provides three different versions: community, cloud, and enterprise.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*DaA8-9sd0-3jdZi24ybBVA.png" alt=""></p>
+<p>The community version is suitable for small teams and personal projects, while the cloud version is suitable for teams of all sizes and provides more features than the community version.</p>
+<p>The enterprise version is suitable for large enterprises and provides all the features of the cloud version, as well as customization options to fit the specific needs of your organization. Support is provided by SigNoz for both the cloud and enterprise versions.</p>
+<hr>
+<h2 id="installation">Installation</h2>
+<p>SigNoz supports three different types of installations: Docker standalone, Docker Swarm, and Kubernetes.</p>
+<p>Each installation type has its own benefits and drawbacks, so it’s important to choose the one that best fits your needs.</p>
+<ul>
+<li>
+<p>Docker standalone installation is the easiest and quickest way to get started with SigNoz. It’s a good choice if you want to quickly set up a local instance of SigNoz for testing and development purposes.</p>
+</li>
+<li>
+<p>Docker Swarm installation is a good choice if you need to run SigNoz in a production environment. It allows you to easily manage and scale your SigNoz deployment.</p>
+</li>
+<li>
+<p>Kubernetes installation is the most powerful and flexible installation option. It allows you to deploy SigNoz to a Kubernetes cluster and take advantage of Kubernetes’ advanced features for managing and scaling applications.</p>
+</li>
+</ul>
+<p>Regardless of the installation type you choose, SigNoz provides detailed documentation to help you get started quickly. Check this documentation for detailed informations.</p>
+<p>In this blog post, I chose the Docker standalone installation type to set up SigNoz. To begin, we need an instance to run all environments.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Linux or macOS machine. Microsoft Windows is not officially supported.
+On macOS, you must manually install Docker Engine before you run the install script. The install script automatically installs Docker Engine on Linux.</li>
+<li>A minimum of 4GB of memory must be allocated to Docker.</li>
+<li>Git client</li>
+<li>Ensure that the ports 3301, 4317 and 4318 are open on the machine where you install SigNoz.</li>
+</ul>
+<p><a href=""><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*MKYXyuFbfbIfY1HxxrPOrg.png" alt=""></a></p>
+<p>Once the instance is ready, all you need to do to install SigNoz is to run the prepared script with the following command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone -b main https://github.com/SigNoz/signoz.git <span style="color:#f92672">&amp;&amp;</span> cd signoz/deploy/
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./install.sh</span></span></code></pre></div>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*4RyuM3W9xyuaytOXvgfvbA.png" alt=""></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*PSqe8ym5ofoy6TYaOayLLA.png" alt=""></p>
+<p>To verify the installation of SigNoz, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps</span></span></code></pre></div>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*QO4eYL0XjL9pgWuXYwWGXg.png" alt=""></p>
+<p>If you see this output, the installation is complete. After that we can preprare our first application to test SigNoz features.</p>
+<p>Once SigNoz is installed, an admin user can create their user by going http://SERVER-IP:3301</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*_ml8jtJhTmXxrjnJFhg9BQ.png" alt=""></p>
+<p>In addition to providing a range of installation options, SigNoz also offers several example applications that are automatically deployed to help you get started with testing and experimentation.</p>
+<h2 id="screenshoots-from-example-applications">Screenshoots from example applications</h2>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*L1h0I32lpGD6niDuBV3C-w.png" alt=""></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*JPPRCNZ_0wHoWHdMal6tPA.png" alt=""></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Aibaiv-z28d6MFh_mUp5sg.png" alt=""></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*SnH7OLpr8eVRpaJScDkQug.png" alt=""></p>
+<h2 id="alert-mechanisim-of-signoz">Alert Mechanisim of SigNoz</h2>
+<p>With SigNoz, not only can you gain valuable insights into your application’s performance, but you can also set up performance alerts to proactively detect and address issues.</p>
+<p>SigNoz allows you to configure customized alerts based on specific performance thresholds, such as response time or error rate. One powerful feature is the ability to integrate SigNoz with Slack using webhooks. By setting up a webhook integration, you can automatically receive performance alerts in your Slack workspace, ensuring that your team stays informed and can take immediate action.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*ZrFbcW8iknU-dkXC5GpFaA.png" alt=""></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*mw9DPEjMzRjkKqT18tnt_A.png" alt=""></p>
+<hr>
+<h2 id="how-to-integrate-signoz-with-your-application">How to integrate SigNoz with your application.</h2>
+<p>SigNoz supports various instrumentation methods depending on your application’s programming language and framework. You’ll need to add SigNoz’s monitoring agent or SDK to your application’s codebase. This will allow SigNoz to collect metrics, traces, and other performance data.</p>
+<p>In this blog post, I will be walking through the process using OpenTelemetry .NET instrumentation.</p>
+<p>First install .NET 6.0 environments</p>
+<ul>
+<li>Add OpenTelemetry package in your .NET application​</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vbnet" data-lang="vbnet"><span style="display:flex;"><span>dotnet <span style="color:#66d9ef">new</span> mvc <span style="color:#f92672">-</span>n Org.MyWebApp <span style="color:#f92672">--</span>no<span style="color:#f92672">-</span>https
+</span></span><span style="display:flex;"><span>dotnet add package OpenTelemetry.Extensions.Hosting <span style="color:#f92672">--</span>prerelease
+</span></span><span style="display:flex;"><span>dotnet add package OpenTelemetry.Instrumentation.AspNetCore <span style="color:#f92672">--</span>prerelease
+</span></span><span style="display:flex;"><span>dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol <span style="color:#f92672">--</span>prerelease</span></span></code></pre></div>
+<ul>
+<li>Configure OpenTelemetry to send logs to SigNoz</li>
+</ul>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*LvcLzwIjegvDT6xiJWyphw.png" alt=""></p>
+<p>Run the application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vbnet" data-lang="vbnet"><span style="display:flex;"><span>dotnet run</span></span></code></pre></div>
+<p>If the integration process is successful, you will be able to see your application on the SigNoz dashboard.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*UCbur3cb4g3wWlKbqpCL2g.png" alt=""></p>
+<p>After that, it’s up to your needs. You can add as many dashboards as you want and track your application’s metrics in real-time from the SigNoz interface.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*wE-iTwq8NuLy7d5mVq7lfA.png" alt=""></p>
+<h2 id="alternatives">Alternatives</h2>
+<p>SigNoz APM has alternatives, and some of the most well-known ones are</p>
+<ul>
+<li>Datadog: Datadog is a comprehensive monitoring and analytics platform that provides end-to-end visibility into your applications and infrastructure. It offers a wide range of features, including APM, infrastructure monitoring, log management, and customizable dashboards.</li>
+<li>New Relic: New Relic is a leading APM solution that helps monitor and optimize the performance of modern applications. It offers features such as real-time application monitoring, distributed tracing, and advanced analytics, enabling organizations to gain deep insights into their application’s behavior.
+To determine which tool is best suited for your needs, it’s important to consider your requirements, budget, and priorities.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>In conclusion, SigNoz is a powerful open-source APM tool that enables organizations to monitor and optimize application performance. With real-time monitoring, distributed tracing, and root cause analysis, SigNoz offers valuable insights for efficient troubleshooting.</p>
+<p>Its user-friendly interface, scalability, and flexibility make it a valuable asset for developers and operations teams. By leveraging SigNoz, organizations can proactively detect issues, identify bottlenecks, and deliver exceptional user experiences. Consider integrating SigNoz into your application stack to gain deeper visibility and take control of your performance journey.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://signoz.io/docs/">https://signoz.io/docs/</a></li>
+<li><a href="https://github.com/SigNoz/signoz">https://github.com/SigNoz/signoz</a></li>
+</ul>
 </section>
 
   
