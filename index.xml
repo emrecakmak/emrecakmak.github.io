@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>~/blog</title>
+    <link>/</link>
+    <description>Recent content on ~/blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hi guys 👋🏻
+My name is Emre Çakmak, and I’m a Cloud Native Engineer at Bestcloudfor.me. I live in Aydın, 🇹🇷 .
+Some of my main interest areas are AWS, Kubernetes ⎈, Security, Monitoring and Python.
+In this blog, you&amp;rsquo;ll find my posts about Cloud &amp;amp; DevOps technologies. Maybe one day I will write an informative article sharing tips on how to prepare Hookah with Russian Style.
+Thats all about me.</description>
+    </item>
+    
+    <item>
+      <title>Unlocking Application Performance with SigNoz: Empower Your Monitoring Game!</title>
+      <link>/post/signoz-post/</link>
+      <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/signoz-post/</guid>
+      <description>Introduction Hello, I’m Emre. I work as a Cloud Native Engineer at Bestcloudfor.me and I’m part of a team that provides consulting services primarily in the AWS cloud domain to our clients.
+In this blog post, we’ll explore SigNoz, a powerful open-source tool for Application Performance Monitoring (APM). With the increasing complexity of modern applications, monitoring performance is crucial. SigNoz provides real-time metrics, distributed tracing, and root cause analysis to help developers and operations teams identify bottlenecks, troubleshoot issues, and optimize application performance.</description>
+    </item>
+    
+    <item>
+      <title>Container Security: Exploring Falco’s Features and Threat Detection Capabilities</title>
+      <link>/post/falco-post/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/falco-post/</guid>
+      <description>Introduction Hello, I’m Emre. I work as a Cloud Native Engineer at Bestcloudfor.me and I’m part of a team that provides consulting services primarily in the AWS cloud domain to our clients.
+In this article, I would like to talk to you about Falco, an effective tool for container security. With the rapid proliferation of containerized applications, security concerns have also been on the rise. This is where the importance of a runtime security tool like Falco comes into play.</description>
+    </item>
+    
+  </channel>
+</rss>

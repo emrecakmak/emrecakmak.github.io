@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Container on ~/blog</title>
+    <link>/tags/container/</link>
+    <description>Recent content in Container on ~/blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Container Security: Exploring Falco’s Features and Threat Detection Capabilities</title>
+      <link>/post/falco-post/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/falco-post/</guid>
+      <description>Introduction Hello, I’m Emre. I work as a Cloud Native Engineer at Bestcloudfor.me and I’m part of a team that provides consulting services primarily in the AWS cloud domain to our clients.
+In this article, I would like to talk to you about Falco, an effective tool for container security. With the rapid proliferation of containerized applications, security concerns have also been on the rise. This is where the importance of a runtime security tool like Falco comes into play.</description>
+    </item>
+    
+  </channel>
+</rss>
