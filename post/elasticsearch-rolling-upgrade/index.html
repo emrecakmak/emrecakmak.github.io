@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SR0N2YLS9T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SR0N2YLS9T');
+</script>
+  
+  <title>Elasticsearch and Kibana: A Roller Coaster Full of Exciting Changes: The Rolling Upgrade Adventure. </title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="Elasticsearch Rolling Upgrade is a method of gradually transitioning from an old version of Elasticsearch to a new version. In this approach, Elasticsearch nodes are updated one by one, and after each update process is completed, the cluster remains operational. This allows for updating the Elasticsearch version without any interruptions in the system.
+This document will describe the process of performing a rolling upgrade to 8.7.0. Before proceeding with the upgrade, it is essential to read the release officail documentation and verify if there are any breaking changes that might affect the services." />
+  <meta name="author" content="Emre" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="/main.min.css" />
+
+  
+
+  
+   
+  <link rel="preload" as="image" href="/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://gcdnb.pbrd.co/images/WdCu3WqPKFam.webp" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="/twitter.svg" />
+  
+  <link rel="preload" as="image" href="/instagram.svg" />
+  
+  <link rel="preload" as="image" href="/mastodon.svg" />
+  
+  
+
+  
+  
+
+  
+  <link rel="icon" href="https://raw.githubusercontent.com/emrecakmak/emrecakmak.github.io/main/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/emrecakmak/emrecakmak.github.io/main/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.112.3">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Elasticsearch and Kibana: A Roller Coaster Full of Exciting Changes: The Rolling Upgrade Adventure." />
+<meta property="og:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/elasticsearch-rolling-upgrade/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-05-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-31T00:00:00+00:00" />
+
+  
+  <meta itemprop="name" content="Elasticsearch and Kibana: A Roller Coaster Full of Exciting Changes: The Rolling Upgrade Adventure.">
+<meta itemprop="description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."><meta itemprop="datePublished" content="2023-05-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-05-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="620">
+<meta itemprop="keywords" content="Elasticsearch,Kibana,Rolling Upgrade,How to upgrade Elasticsearch," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Elasticsearch and Kibana: A Roller Coaster Full of Exciting Changes: The Rolling Upgrade Adventure."/>
+<meta name="twitter:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="/"
+      >~/blog</a
+    >
+    <div
+      class="btn-dark text-[0] ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#fff"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="https://emrecakmak.github.io/cv/"
+        >Resume</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/_EmreCakmak"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./instagram.svg)"
+        href="https://instagram.com/_emrecakmak"
+        target="_blank"
+        rel="me"
+      >
+        instagram
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./mastodon.svg)"
+        href="https://www.linkedin.com/in/cakmak-emre/"
+        target="_blank"
+        rel="me"
+      >
+        mastodon
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pb-24 pt-16 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Elasticsearch and Kibana: A Roller Coaster Full of Exciting Changes: The Rolling Upgrade Adventure.</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>May 31, 2023</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Emre</span>
+      
+    </div>
+    
+  </header>
+
+  <section><p><img src="https://miro.medium.com/v2/resize:fit:1244/0*7dwP5sAGpE5Yonyh.jpg" alt=""></p>
+<p>Elasticsearch Rolling Upgrade is a method of gradually transitioning from an old version of Elasticsearch to a new version. In this approach, Elasticsearch nodes are updated one by one, and after each update process is completed, the cluster remains operational. This allows for updating the Elasticsearch version without any interruptions in the system.</p>
+<p>This document will describe the process of performing a rolling upgrade to 8.7.0. Before proceeding with the upgrade, it is essential to read the release officail documentation and verify if there are any breaking changes that might affect the services.</p>
+<h3 id="important-notes">Important Notes</h3>
+<ul>
+<li>
+<p>Make sure to take a backup of the elasticsearch.yml, kibana.yml file.</p>
+</li>
+<li>
+<p>Before the upgrade, be sure to take snapshot from all nodes.</p>
+</li>
+<li>
+<p>Start the process by upgrading the nodes which are not master eligible, and then proceed to upgrade the master eligible nodes, be carefull to update the asterisk (*) marked one must be last.</p>
+</li>
+</ul>
+<hr>
+<p>To avoid any performance issues during the upgrade, please execute the following commands in Kibana DevTools:</p>
+<h4 id="disable-shard-allocation">Disable shard allocation</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PUT _cluster/settings
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;persistent&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;cluster.routing.allocation.enable&#34;</span>: <span style="color:#e6db74">&#34;primaries&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span> </span></span></code></pre></div>
+<h4 id="stop-non-essential-indexing-and-perform-a-flush">Stop non-essential indexing and perform a flush</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POST /_flush</span></span></code></pre></div>
+<p>Then connect the node you want to upgrade and run following commands to upgrade 8.7.0 version.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>apt update</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systemctl stop elasticsearch</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sudo apt<span style="color:#f92672">-</span>get <span style="color:#f92672">--</span>only<span style="color:#f92672">-</span>upgrade install elasticsearch<span style="color:#f92672">=</span><span style="color:#ae81ff">8.7.0</span></span></span></code></pre></div>
+<p>If you want to keep your settings as they are (elasticsearch.yml), you can proceed with the default option, which is &ldquo;no&rdquo; (N).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systemctl daemon<span style="color:#f92672">-</span>reload
+</span></span><span style="display:flex;"><span>systemctl start elasticsearch</span></span></code></pre></div>
+<p>After these commands, you can check if the Elasticsearch service is up and running using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systemctl status elasticsearch</span></span></code></pre></div>
+<p>If the service is active, it means there are no issues. However, if there are problems with the service, you can check the relevant logs under the /var/log/elasticsearch directory. These logs contain important information about the Elasticsearch service, such as error messages, warnings, and other diagnostic details. Examining these logs can help you identify and troubleshoot any issues that may have occurred during or after the upgrade process.</p>
+<p>Once you see that the node has rejoined the cluster using the &ldquo;GET _cat/nodes?v&rdquo; command in Kibana, you can wait for the unassigned shards to be allocated by running the following command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PUT _cluster/settings
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;persistent&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;cluster.routing.allocation.enable&#34;</span>: null
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div>
+<p>When the cluster becomes green again, you can repeat the process for other nodes.</p>
+<h1 id="kibana">Kibana</h1>
+<p>To ensure compatibility, it is indeed recommended to update Kibana along with Elasticsearch to the compatible version. Before performing the Kibana upgrade, it is advisable to take a snapshot of the data and also create a backup of the kibana.yml configuration file.</p>
+<p>Additionally, it is crucial to review the <a href="https://www.elastic.co/guide/en/elastic-stack/8.7/kibana-breaking-changes.html">release notes</a>
+of the target Kibana version to check for any critical changes or considerations.</p>
+<p>By following these recommendations, you can minimize the risk of version incompatibilities and ensure a smooth upgrade of both Elasticsearch and Kibana while preserving your data and configurations.</p>
+<hr>
+<p>After performing the necessary checks, you can proceed with updating Kibana using the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>apt update</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systemctl stop kibana</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sudo apt<span style="color:#f92672">-</span>get <span style="color:#f92672">--</span>only<span style="color:#f92672">-</span>upgrade install kibana<span style="color:#f92672">=</span><span style="color:#ae81ff">8.7.0</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systemctl restart kibana</span></span></code></pre></div>
+<h3 id="important-note">Important Note!</h3>
+<p>By default, Kibana uses port 5601. After executing the previous commands, Kibana will start up and become accessible after a while.</p>
+<p>However, in some cases, the port used by Kibana may be different. For example, if Kibana is configured to use HTTPS, it may attempt to start on port 443. In such cases, it is necessary to grant permissions for Kibana to use the specific port.</p>
+<p><ins>If you face</ins> such a situation, you can use the following commands to grant permissions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>setcap cap_net_bind_service<span style="color:#f92672">=+</span>epi <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>share<span style="color:#f92672">/</span>kibana<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>kibana
+</span></span><span style="display:flex;"><span>setcap cap_net_bind_service<span style="color:#f92672">=+</span>epi <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>share<span style="color:#f92672">/</span>kibana<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>kibana<span style="color:#f92672">-</span>plugin
+</span></span><span style="display:flex;"><span>setcap cap_net_bind_service<span style="color:#f92672">=+</span>epi <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>share<span style="color:#f92672">/</span>kibana<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>kibana<span style="color:#f92672">-</span>keystore
+</span></span><span style="display:flex;"><span>setcap cap_net_bind_service<span style="color:#f92672">=+</span>epi <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>share<span style="color:#f92672">/</span>kibana<span style="color:#f92672">/</span>node<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>node</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>systemctl restart kibana</span></span></code></pre></div>
+<hr>
+<p>If everything went well, it means you have successfully performed a rolling upgrade of Elasticsearch and Kibana!</p>
+<p><img src="https://media3.giphy.com/media/jJQC2puVZpTMO4vUs0/giphy.gif?cid=ecf05e47g7vv2qgdhb19e2sbj5u9lyoiok9c6heqomo3tb93&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" alt=""></p>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="/tags/elasticsearch"
+      >Elasticsearch</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="/tags/kibana"
+      >Kibana</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="/tags/rolling-upgrade"
+      >Rolling Upgrade</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="/tags/how-to-upgrade-elasticsearch"
+      >How to upgrade Elasticsearch</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="/post/signoz-post/"
+      ><span>Unlocking Application Performance with SigNoz: Empower Your Monitoring Game!</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="/"></a>
+  </div>
+️
+
+</footer>
+
+  </body>
+</html>

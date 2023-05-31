@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elasticsearch on ~/blog</title>
+    <link>/categories/elasticsearch/</link>
+    <description>Recent content in Elasticsearch on ~/blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elasticsearch and Kibana: A Roller Coaster Full of Exciting Changes: The Rolling Upgrade Adventure.</title>
+      <link>/post/elasticsearch-rolling-upgrade/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/elasticsearch-rolling-upgrade/</guid>
+      <description>Elasticsearch Rolling Upgrade is a method of gradually transitioning from an old version of Elasticsearch to a new version. In this approach, Elasticsearch nodes are updated one by one, and after each update process is completed, the cluster remains operational. This allows for updating the Elasticsearch version without any interruptions in the system.
+This document will describe the process of performing a rolling upgrade to 8.7.0. Before proceeding with the upgrade, it is essential to read the release officail documentation and verify if there are any breaking changes that might affect the services.</description>
+    </item>
+    
+  </channel>
+</rss>
